@@ -1,0 +1,1 @@
+INSERT INTO reviews (`user`, `reviewer`, `alias`, `content`, `positive`) VALUES (%user%, %reviewer%, %alias%, %content%, %positive%) ON DUPLICATE KEY UPDATE `alias`=%alias%, `content`=%content%, `positive`=%positive%;

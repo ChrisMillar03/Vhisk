@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS `roles` (`guild` VARCHAR(255) NOT NULL, `role_k` VARCHAR(255) NOT NULL, `role_v` VARCHAR(255) NOT NULL, UNIQUE (`guild`, `role_k`)) ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `reviews` (`user` VARCHAR(255) NOT NULL, `reviewer` VARCHAR(255) NOT NULL, `alias` VARCHAR(255) NOT NULL, `positive` BOOLEAN NOT NULL, `content` VARCHAR(255) NOT NULL, UNIQUE (`user`, `reviewer`)) ENGINE = InnoDB;

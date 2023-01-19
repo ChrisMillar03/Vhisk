@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+*
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+html, body
+{
+	width: 100vw;
+	height: 100vh;
+}
+
+#app
+{
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	background-color: #36393e;
+}
+
+#app > header
+{
+	display: inline-flex;
+	flex: 0 1 auto;
+	align-items: center;
+	padding: 24px 32px;
+}
+
+#app > header > img
+{
+	width: 80px;
+	height: 80px;
+	border-radius: 100%;
+	display: inline-flex;
+}
+
+#app > header > h1
+{
+	color: white;
+	font-size: 24px;
+	font-family: 'Open Sans', sans-serif;
+	display: inline-flex;
+	padding: 16px 32px;
+}
+
+#app > header > p
+{
+	color: white;
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+	display: inline-flex;
+	padding: 0px 32px;
+}
+
+#app > table
+{
+	border-collapse: collapse;
+	display: inline-flex;
+	flex: 1 1 auto;
+	padding: 0px 24px;
+}
+
+#app > table > tbody > tr > th,
+#app > table > tbody > tr > td
+{
+	color: white;
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+	text-align: left;
+	overflow: hidden;
+	padding: 8px 24px;
+}
+
+#app > table > tbody > tr > th > a
+{
+	text-decoration: none;
+	color: whitesmoke;
+}
+
+.positive
+{
+	border-left: 2px solid lime;
+}
+
+.negative
+{
+	border-left: 2px solid red;
+}
+
+@media only screen and (max-width: 900px)
+{
+	#app > header
+	{
+		flex-direction: column;
+	}
+
+	#app > header > h1
+	{
+		text-align: center;
+	}
+
+	#app > header > p
+	{
+		display: none;
+	}
+
+	#app > table > tbody > tr > th,
+	#app > table > tbody > tr > td
+	{
+		float: left;
+		display: block;
+		padding-right: 0px;
+	}
+}

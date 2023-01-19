@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="shortcut icon" type="image/x-icon" href="<%= user.displayAvatarURL() %>"/>
+		<link rel="stylesheet" type="text/css" href="/reviews/main.css"/>
+		<title>Reviews | <%= user.username %>#<%= user.discriminator %></title>
+	</head>
+	<body>
+		<div id="app">
+			<header>
+				<img src="<%= user.displayAvatarURL() %>" alt="Avatar"/>
+				<h1 data-id="<%= user.id %>">Player reviews for <%= user.username %>#<%= user.discriminator %></h1>
+				<p>Account created: <%= user.createdAt.toString().split('+')[0] %></p>
+			</header>
+			<table>
+				<tbody>
+					<% reviews.forEach(row => { %>
+						<tr class="<%= row.positive ? 'positive' : 'negative' %>" data-id="<%= row.reviewer %>">
+							<th><a href="./<%= row.reviewer %>"><%= row.alias %></a></th>
+							<td><%= row.content %></td>
+						</tr>
+					<% }) %>
+					<% if (reviews.length === 0) { %>
+						<tr class="positive">
+							<th>No reviews recorded</th>
+						</tr>
+					<% } %>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Nodemon
+nodemon.json
+
+# Discord.js
+token.txt

@@ -1,0 +1,30 @@
+{
+  "name": "vhisk",
+  "version": "0.0.1",
+  "description": "Discord LFG and Reputation system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisMillar03/Vhisk.git"
+  },
+  "keywords": [
+    "Discord",
+    "Bot"
+  ],
+  "author": "ChrisMillar03",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisMillar03/Vhisk/issues"
+  },
+  "homepage": "https://github.com/ChrisMillar03/Vhisk#readme",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "sqlstring": "^2.3.3"
+  }
+}
