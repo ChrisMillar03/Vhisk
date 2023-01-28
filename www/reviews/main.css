@@ -44,7 +44,7 @@ html, body
 	font-size: 24px;
 	font-family: 'Open Sans', sans-serif;
 	display: inline-flex;
-	padding: 16px 32px;
+	padding: 0px 32px;
 }
 
 #app > header > p
