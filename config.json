@@ -2,7 +2,8 @@
     "invite": "https://discord.gg/invite/example",
     "http": {
         "host": "localhost",
-        "port": 8080
+        "port": 8080,
+        "reverse_proxy": false
     },
     "db": {
         "host": "localhost",

@@ -67,7 +67,7 @@ class ReputationCommand
 			let percent = pos / (pos + neg);
 			let rgb = await this.hslToRGB(percent * 120, 1, 0.5);
 			let hex = '#' + (1 << 24 | rgb[0] << 16 | rgb[1] << 8 | rgb[2]).toString(16).slice(1);
-			let port = this.config.http.port !== 80 ? `:${this.config.http.port}` : '';
+			let port = this.config.http.port !== 80 && !this.config.http.reverse_proxy ? `:${this.config.http.port}` : '';
 			let embed = new Discord.EmbedBuilder();
 
 			embed.setColor(hex);
