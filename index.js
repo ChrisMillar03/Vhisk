@@ -5,8 +5,6 @@ const config = require('./config.json');
 const path = require('path');
 const fs = require('fs');
 
-if (!process.env.BOT_TOKEN) process.env.BOT_TOKEN = fs.readFileSync(path.join(__dirname, 'token.txt'), { 'encoding': 'utf8', 'flag': 'r' });
-
 const commandsFolder = path.join(__dirname, 'commands');
 
 if (!fs.existsSync(commandsFolder)) fs.mkdirSync(commandsFolder);
@@ -75,4 +73,4 @@ client.on('ready', async _ =>
 	console.log('Bot started');
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login(config.token);

@@ -107,4 +107,4 @@ dist
 nodemon.json
 
 # Discord.js
-token.txt
+config.json
