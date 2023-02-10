@@ -68,11 +68,12 @@ class ReputationCommand
 			let rgb = await this.hslToRGB(percent * 120, 1, 0.5);
 			let hex = '#' + (1 << 24 | rgb[0] << 16 | rgb[1] << 8 | rgb[2]).toString(16).slice(1);
 			let port = this.config.http.port !== 80 && !this.config.http.reverse_proxy ? `:${this.config.http.port}` : '';
+			let protocol = this.config.http.https ? "https" : "http";
 			let embed = new Discord.EmbedBuilder();
 
 			embed.setColor(hex);
 			embed.setTitle(`Reviews for ${user.username}#${user.discriminator}`);
-			embed.setURL(`http://${this.config.http.host}${port}/reviews/${user.id}`);
+			embed.setURL(`${protocol}://${this.config.http.host}${port}/reviews/${user.id}`);
 			embed.addFields({ name: 'Positive', inline: true, value: pos.toString() });
 			embed.addFields({ name: 'Negative', inline: true, value: neg.toString() });
 			embed.setThumbnail(user.displayAvatarURL());

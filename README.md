@@ -9,6 +9,7 @@ Discord LFG and Reputation system
     "http": {
         "host": "localhost",
         "port": 8080,
+        "https": false,
         "reverse_proxy": false
     },
     "db": {
