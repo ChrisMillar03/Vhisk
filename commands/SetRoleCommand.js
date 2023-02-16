@@ -9,7 +9,7 @@ class SetRoleCommand
 		this.config = config;
 		this.database = database;
 		this.name = 'setrole';
-		this.description = 'Set roles to be used by bot';
+		this.description = 'Set roles to be used by the bot';
 	}
 
 	async setup()
@@ -23,12 +23,7 @@ class SetRoleCommand
 					description: 'ID',
 					required: true,
 					type: Discord.ApplicationCommandOptionType.String,
-					choices: [
-						{
-							name: 'LFG',
-							value: 'lfg'
-						}
-					]
+					choices: this.config.games
 				},
 				{
 					name: 'role',

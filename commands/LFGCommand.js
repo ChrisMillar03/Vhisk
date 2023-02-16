@@ -18,6 +18,13 @@ class LFGCommand
 			description: this.description,
 			options: [
 				{
+					name: 'game',
+					description: 'Game you are playing',
+					required: true,
+					type: Discord.ApplicationCommandOptionType.String,
+					choices: this.config.games
+				},
+				{
 					name: 'message',
 					description: 'Message to display in post',
 					required: true,
@@ -40,6 +47,7 @@ class LFGCommand
 		}
 
 		let channel = await interaction.guild.channels.cache.find(channel => channel.id === interaction.member.voice.channelId);
+		let game = await options.getString('game');
 		let message = await options.getString('message');
 		let invite = await channel.createInvite({
 			maxAge: 60 * 30,
@@ -49,7 +57,7 @@ class LFGCommand
 		await interaction.deferReply();
 		await interaction.deleteReply();
 
-		await this.database.runQuery('get_role.sql', { guild: `'${interaction.guild.id}'`, role_k: `'lfg'` }, async (err, res) =>
+		await this.database.runQuery('get_role.sql', { guild: `'${interaction.guild.id}'`, role_k: `'${game}'` }, async (err, res) =>
 		{
 			if (err && err.code !== 'ECONNREFUSED') throw err;
 
@@ -61,7 +69,12 @@ class LFGCommand
 			}
 			else
 			{
-				await interaction.channel.send({ content: ':x: LFG command is configured incorrectly, please contact an admin!' });
+				let embed = new Discord.EmbedBuilder();
+
+				embed.setColor('#ff0000');
+				embed.setTitle(`:x: ${game} has not been configured properly!`);
+
+				await interaction.channel.send({ embeds: [embed] });
 			}
 		});
 	}

@@ -6,6 +6,16 @@ Discord LFG and Reputation system
 {
     "token": "[Token]",
     "invite": "https://discord.gg/invite/example",
+    "games": [
+        {
+            "name": "R6 Casual",
+            "value": "lfg_casual"
+        },
+        {
+            "name": "R6 Ranked",
+            "value": "lfg_ranked"
+        }
+    ],
     "http": {
         "host": "localhost",
         "port": 8080,
