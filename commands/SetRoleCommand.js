@@ -59,14 +59,14 @@ class SetRoleCommand
 			if (err)
 			{
 				await interaction.reply({
-					content: ':x: Error inserting setting role in database!',
+					content: `:x: Error inserting role into database! (${id})`,
 					ephemeral: true
 				});
 			}
 			else
 			{
 				await interaction.reply({
-					content: ':white_check_mark: Role mapping updated',
+					content: `white_check_mark: Role mapping updated (${id})`,
 					ephemeral: true
 				});
 			}

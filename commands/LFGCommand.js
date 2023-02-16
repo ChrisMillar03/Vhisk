@@ -69,12 +69,7 @@ class LFGCommand
 			}
 			else
 			{
-				let embed = new Discord.EmbedBuilder();
-
-				embed.setColor('#ff0000');
-				embed.setTitle(`:x: ${game} has not been configured properly!`);
-
-				await interaction.channel.send({ embeds: [embed] });
+				await interaction.channel.send({ content: `:x: ${game} has not been configured properly!` });
 			}
 		});
 	}
