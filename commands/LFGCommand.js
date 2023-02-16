@@ -39,7 +39,7 @@ class LFGCommand
 		if (!interaction.member.voice.channelId)
 		{
 			await interaction.reply({
-				content: ':x: You must be in a voice channel to use this command!',
+				embeds: [new Discord.EmbedBuilder().setColor('#ff0000').setTitle(':x: You must be in a voice channel to use this command!')],
 				ephemeral: true
 			});
 
@@ -69,7 +69,7 @@ class LFGCommand
 			}
 			else
 			{
-				await interaction.channel.send({ content: `:x: ${game} has not been configured properly!` });
+				await interaction.channel.send({ embeds: [new Discord.EmbedBuilder().setColor('#ff0000').setTitle(`:x: Game ${game} has no connected role!`)] });
 			}
 		});
 	}

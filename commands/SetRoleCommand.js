@@ -40,7 +40,7 @@ class SetRoleCommand
 		if (!interaction.member.permissions.has(Discord.PermissionsBitField.Flags.ManageRoles))
 		{
 			await interaction.reply({
-				content: ':x: You don\'t have permission to run this command!',
+				embeds: [new Discord.EmbedBuilder().setColor('#ff0000').setTitle(':x: You don\'t have permission to run this command!')],
 				ephemeral: true
 			});
 
@@ -59,14 +59,14 @@ class SetRoleCommand
 			if (err)
 			{
 				await interaction.reply({
-					content: `:x: Error inserting role into database! (${id})`,
+					embeds: [new Discord.EmbedBuilder().setColor('#ff0000').setTitle(`:x: Error inserting role into database! (${id})`)],
 					ephemeral: true
 				});
 			}
 			else
 			{
 				await interaction.reply({
-					content: `white_check_mark: Role mapping updated (${id})`,
+					embeds: [new Discord.EmbedBuilder().setColor('#00ff00').setTitle(`:white_check_mark: Role mapping updated (${id})`)],
 					ephemeral: true
 				});
 			}

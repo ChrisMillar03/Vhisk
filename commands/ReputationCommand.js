@@ -44,7 +44,7 @@ class ReputationCommand
 			if (err)
 			{
 				await interaction.reply({
-					content: ':x: Error fetching content from database!',
+					embeds: [new Discord.EmbedBuilder().setColor('#ff0000').setTitle(':x: Error fetching content from database!')],
 					ephemeral: true
 				});
 
@@ -57,7 +57,7 @@ class ReputationCommand
 			if (pos == 0 && neg == 0)
 			{
 				await interaction.reply({
-					content: ':information_source: No reviews recorded for this user',
+					embeds: [new Discord.EmbedBuilder().setColor('#4444ff').setTitle(':information_source: No reviews recorded for this user')],
 					ephemeral: true
 				});
 

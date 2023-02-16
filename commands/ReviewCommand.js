@@ -49,7 +49,7 @@ class ReviewCommand
 		if (review.length > 255)
 		{
 			await interaction.reply({
-				content: ':x: Review too large to be held in database!',
+				embeds: [new Discord.EmbedBuilder().setColor('#ff0000').setTitle(':x: Review too large to be held in database!')],
 				ephemeral: true
 			});
 
@@ -59,7 +59,7 @@ class ReviewCommand
 		if (user.id === interaction.user.id)
 		{
 			await interaction.reply({
-				content: ':x: You cannot review yourself!',
+				embeds: [new Discord.EmbedBuilder().setColor('#ff0000').setTitle(':x: You cannot review yourself!')],
 				ephemeral: true
 			});
 
@@ -80,14 +80,14 @@ class ReviewCommand
 			if (err)
 			{
 				await interaction.reply({
-					content: ':x: Error inserting review into database!',
+					embeds: [new Discord.EmbedBuilder().setColor('#ff0000').setTitle(':x: Error inserting review into database!')],
 					ephemeral: true
 				});
 			}
 			else
 			{
 				await interaction.reply({
-					content: ':white_check_mark: Player review updated',
+					embeds: [new Discord.EmbedBuilder().setColor('#00ff00').setTitle(':white_check_mark: Player review updated')],
 					ephemeral: true
 				});
 			}
