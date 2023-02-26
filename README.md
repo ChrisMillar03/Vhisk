@@ -6,6 +6,7 @@ Discord LFG and Reputation system
 {
     "token": "[Token]",
     "invite": "https://discord.gg/invite/example",
+    "lfg_cooldown": 180,
     "games": [
         {
             "name": "R6 Casual",

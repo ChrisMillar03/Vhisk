@@ -9,6 +9,7 @@ class LFGCommand
 		this.database = database;
 		this.name = 'lfg';
 		this.description = 'Create an LFG post to find players';
+		this.cooldown = new Map();
 	}
 
 	async setup()
@@ -45,6 +46,23 @@ class LFGCommand
 
 			return;
 		}
+
+		if (Date.now() < this.cooldown.get(interaction.user.id) ?? 0)
+		{
+			let time = Math.ceil((this.cooldown.get(interaction.user.id) - Date.now()) / 1000);
+			let timeString = time > 60 ? `${Math.floor(time / 60)}m ${time % 60}s` : `${time}s`;
+
+			await interaction.reply({
+				embeds: [new Discord.EmbedBuilder().setColor('#ff0000').setTitle(`:x: You can use this command again in ${timeString}!`)],
+				ephemeral: true
+			});
+
+			return;
+		}
+
+		this.cooldown.set(interaction.user.id, Date.now() + this.config.lfg_cooldown * 1000);
+
+		this.cooldown = new Map([...this.cooldown].filter(([k, v]) => v > Date.now()));
 
 		let channel = await interaction.guild.channels.cache.find(channel => channel.id === interaction.member.voice.channelId);
 		let game = await options.getString('game');
