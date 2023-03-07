@@ -18,6 +18,11 @@ class HTTPServer
 		res.redirect(this.config.invite);
 	}
 
+	async routeInvite(req, res)
+	{
+		res.redirect(`https://discord.com/api/oauth2/authorize?client_id=${this.client.user.id}&permissions=149504&scope=bot`);
+	}
+
 	async routeReviews(req, res)
 	{
 		try
@@ -47,6 +52,7 @@ class HTTPServer
 		this.app.set('view engine', 'ejs');
 		this.app.use(express.static(path.join(__dirname, 'www')));
 		this.app.get('/', this.routeIndex.bind(this));
+		this.app.get('/invite', this.routeInvite.bind(this));
 		this.app.get('/reviews/:user', this.routeReviews.bind(this));
 		this.app.listen(this.config.http.port);
 

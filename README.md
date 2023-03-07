@@ -6,6 +6,10 @@ Discord LFG and Reputation system
 {
     "token": "[Token]",
     "invite": "https://discord.gg/invite/example",
+    "presence": {
+        "activities": [{ "name": "some game", "type": 0 }],
+        "status": "idle"
+    },
     "lfg_cooldown": 180,
     "games": [
         {

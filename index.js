@@ -69,6 +69,7 @@ client.on('ready', async _ =>
 
 	await database.setup();
 	await httpServer.setup();
+	await client.user.setPresence(config.presence);
 
 	console.log('Bot started');
 });
