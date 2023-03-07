@@ -38,7 +38,7 @@ async function registerCommands(guild)
 	{
 		commands.forEach(async cmd =>
 		{
-			guild.commands.create(await cmd.setup());
+			await guild.commands.create(await cmd.setup());
 		});
 	}
 }

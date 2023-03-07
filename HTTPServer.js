@@ -15,12 +15,12 @@ class HTTPServer
 
 	async routeIndex(req, res)
 	{
-		res.redirect(this.config.invite);
+		await res.redirect(this.config.invite);
 	}
 
 	async routeInvite(req, res)
 	{
-		res.redirect(`https://discord.com/api/oauth2/authorize?client_id=${this.client.user.id}&permissions=149504&scope=bot`);
+		await res.redirect(`https://discord.com/api/oauth2/authorize?client_id=${this.client.user.id}&permissions=149504&scope=bot`);
 	}
 
 	async routeReviews(req, res)
